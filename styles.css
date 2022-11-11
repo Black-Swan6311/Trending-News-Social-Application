@@ -1,0 +1,58 @@
+/* You can add global styles to this file, and also import other style files */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+
+
+.box{
+	height:350px;
+	padding: 10px 10px 0;
+	/* width: 350px; */
+    /* padding: 10px; */
+    background-color: rgb(176, 176, 183);
+	/* box-sizing: border-box; */
+}
+
+.box h5{
+    font-size: 16px;
+    font-weight: bold;
+}
+ body { 
+	height: 100%; 
+	background: linear-gradient(-45deg, 	#DDDDDD, #C0C0C0, #D3D3D3, #BBBBBB);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+	height: 100vh;
+	margin: 0; 
+	font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+marquee{
+    color: rgb(8, 7, 7);
+	font-size: 1.5rem;
+	font-weight: bold;
+}
