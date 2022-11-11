@@ -1,0 +1,17 @@
+.fontSize {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+.image-box {
+    aspect-ratio: 16/9;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.image-box img {
+    width: auto;
+    height: 100%;
+    display: block;
+}

@@ -1,0 +1,29 @@
+<div class="container-fluid mt-3 ">
+    <div class="row mt-3 ">
+        <h5 class="fontSize" >Technology News </h5>
+        <!-- <select name="" id="">PerPage
+          <option value="5">5</option>
+          <option value="5">10</option>
+          <option value="5" selected>20</option>
+        </select> -->
+        <div *ngFor="let news of techNewsData" class="col-lg-3 mt-3 mb-3 ">
+              <div class="box">
+                <div class="image-box">
+                  <img src="{{news.urlToImage}}">
+                </div>
+                <h5 class="mt-3 mb-3" >{{news.title}}</h5>
+                <a class="btn btn-dark btn-sm" target="_blank" href="{{news.url}}">Read More</a>
+              
+                <!-- <rating   style="color: #b3a612;font-size: 26px;" [(ngModel)]="rate" [max]="max" [readonly]="isReadonly">
+                </rating> -->
+              </div>
+              <!-- <div class="card">
+                <pre class="card-block card-header" style="margin:2px 0;">
+                  Rate: <b>{{rate}}</b>
+                </pre>
+              </div> -->
+        </div>
+        <a href="">1</a>
+       
+    </div>
+</div>
