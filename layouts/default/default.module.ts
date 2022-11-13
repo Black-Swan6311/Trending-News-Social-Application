@@ -13,11 +13,13 @@ import { MatDividerModule } from '@angular/material/divider';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { DashboardService } from 'src/app/modules/dashboard.service';
 
+
 @NgModule({
   declarations: [
     DefaultComponent,
     DashboardComponent,
-    PostsComponent
+    PostsComponent,
+
   ],
   imports: [
     CommonModule,
@@ -28,11 +30,11 @@ import { DashboardService } from 'src/app/modules/dashboard.service';
     FlexLayoutModule,
     MatCardModule,
     MatPaginatorModule,
-    MatTableModule,
-    SharedModule
+    MatTableModule
+    
   ],
   providers: [
     DashboardService
   ]
 })
-export class DefaultModule { }
+export class DefaultModule { ChatComponent}
