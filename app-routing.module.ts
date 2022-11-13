@@ -11,7 +11,11 @@ import { ScienceComponent } from './components/science/science.component';
 import { SearchComponent } from './components/search/search.component';
 import { SportComponent } from './components/sport/sport.component';
 import { TechnologyComponent } from './components/technology/technology.component';
-import { UserDashboardComponent } from './components/user-dashboard/user-dashboard.component';
+import { DefaultComponent } from './layouts/default/default.component';
+import { DashboardComponent } from './modules/dashboard/dashboard.component';
+import { PostsComponent } from './modules/posts/posts.component';
+import { ChatComponent } from './shared/components/chat/chat.component';
+
 
 const routes: Routes = [
   { path: '', component:MainPageComponent , pathMatch: 'full'},
@@ -25,8 +29,20 @@ const routes: Routes = [
   { path: 'business' , component: BusinessComponent}, // Business Page
   { path: 'login' , component : LoginComponent}, // Login Page
   { path: 'technology', component: TechnologyComponent }, // Technology Page
-  { path: 'user-dashboard', component: UserDashboardComponent },
-  { path: 'logout' , component: LogoutComponent}
+  { path: 'logout', component: LogoutComponent },
+  {
+    path: 'dashboard',component: DefaultComponent,children: [{
+      path: '',
+      component: DashboardComponent
+    }, {
+      path: 'posts',
+      component: PostsComponent
+      }, {
+      path: 'chat',
+        component: ChatComponent
+      }
+    ]
+  }
 ];
 
 @NgModule({

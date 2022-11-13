@@ -20,9 +20,11 @@ import { HealthComponent } from './components/health/health.component';
 import { GeneralComponent } from './components/general/general.component';
 import { EntertainmentComponent } from './components/entertainment/entertainment.component';
 import { ScienceComponent } from './components/science/science.component';
-import { UserDashboardComponent } from './components/user-dashboard/user-dashboard.component';
 import { LogoutComponent } from './components/logout/logout.component';
 import { MaterialModule } from './material/material.module';
+import { DefaultModule } from './layouts/default/default.module';
+import { LiveChatWidgetModule } from '@livechat/widget-angular';
+
 
 @NgModule({
   declarations: [
@@ -38,8 +40,8 @@ import { MaterialModule } from './material/material.module';
     GeneralComponent,
     EntertainmentComponent,
     ScienceComponent,
-    UserDashboardComponent,
     LogoutComponent,
+
 
     
     
@@ -54,7 +56,9 @@ import { MaterialModule } from './material/material.module';
     FormsModule,
     ReactiveFormsModule,
     RatingModule.forRoot(),
-    MaterialModule
+    MaterialModule,
+    DefaultModule,
+    LiveChatWidgetModule
    
     
   ],

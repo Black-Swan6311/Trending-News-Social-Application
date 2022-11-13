@@ -32,13 +32,13 @@ export class NewsapiService {
   // Top Headlines API URL
   topHeaadlinesNews = `https://newsapi.org/v2/top-headlines?country=ca&pageSize=pageSize=60&sortBy=popularity&apiKey=082c377cfd8d44f3b20ef9f522e07230`;
   // Technology News API URL
-  techNews = 'https://newsapi.org/v2/top-headlines?country=us&category=technology&pageSize=50&apiKey=082c377cfd8d44f3b20ef9f522e07230';
+  techNews = 'https://newsapi.org/v2/top-headlines?country=us&sortBy=popularity&category=technology&pageSize=50&apiKey=082c377cfd8d44f3b20ef9f522e07230';
   //business News
-  businessNews = 'https://newsapi.org/v2/top-headlines?country=us&pageSize=50&category=business&apiKey=082c377cfd8d44f3b20ef9f522e07230'
+  businessNews = 'https://newsapi.org/v2/top-headlines?country=us&sortBy=popularity&pageSize=50&category=business&apiKey=082c377cfd8d44f3b20ef9f522e07230'
   //sport News
-  sportsNews = 'https://newsapi.org/v2/top-headlines?country=us&category=sports&pageSize=50&sortBy=popularity&apiKey=082c377cfd8d44f3b20ef9f522e07230'
+  sportsNews = 'https://newsapi.org/v2/top-headlines?country=us&sortBy=popularity&pageSize=50&category=sports&apiKey=082c377cfd8d44f3b20ef9f522e07230'
   //entertaiment News
-  entertainmentNews = 'https://newsapi.org/v2/top-headlines?country=us&category=entertainment&pageSize=50&sortBy=popularity&apiKey=082c377cfd8d44f3b20ef9f522e07230'
+  entertainmentNews = 'https://newsapi.org/v2/top-headlines?country=us&sortBy=popularity&category=entertainment&pageSize=50&sortBy=popularity&apiKey=082c377cfd8d44f3b20ef9f522e07230'
   //general News
   generalNews = 'https://newsapi.org/v2/top-headlines?country=us&category=general&pageSize=50&sortBy=popularity&apiKey=082c377cfd8d44f3b20ef9f522e07230'
    //health News

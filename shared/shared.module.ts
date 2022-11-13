@@ -15,6 +15,7 @@ import { AreaComponent } from './widgets/area/area.component';
 import { HighchartsChartModule } from 'highcharts-angular';
 import { CardComponent } from './widgets/card/card.component';
 import { PieComponent } from './widgets/pie/pie.component';
+import { ChatComponent } from './components/chat/chat.component';
 
 
 
@@ -25,7 +26,9 @@ import { PieComponent } from './widgets/pie/pie.component';
     SidebarComponent,
     AreaComponent,
     CardComponent,
-    PieComponent
+    PieComponent,
+    ChatComponent,
+   
   ],
   imports: [
     CommonModule,
@@ -37,7 +40,7 @@ import { PieComponent } from './widgets/pie/pie.component';
     MatMenuModule,
     MatListModule,
     RouterModule,
-      HighchartsChartModule,
+    HighchartsChartModule,
       
   ],
   exports: [
