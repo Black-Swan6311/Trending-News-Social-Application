@@ -11,7 +11,6 @@ export class NewsapiService {
  
   private searchTerm: BehaviorSubject<string>;
 
- 
   constructor(private http: HttpClient, private location:GetLocationService ) {
     this.searchTerm = new BehaviorSubject<string>('');
   }
@@ -24,21 +23,20 @@ export class NewsapiService {
     this.searchTerm.next(newValue);
   }
 
-
-  API_KEY: string = '082c377cfd8d44f3b20ef9f522e07230';
+  API_KEY: string = '9f591a55082444f1ba9eddebe123f370';
   url: string = 'http://newsapi.org/v2/everything?q=';
-  params: string = '&sortBy=relevancy&apiKey=' ;//REPLACE YYYY-MM-DD WITH VALID DATE WITHIN ONE MONTH OF RUNNING APP
+  params: string = '&sortBy=relevancy&apiKey=' ;    
   
   // Top Headlines API URL
   topHeaadlinesNews = `https://newsapi.org/v2/top-headlines?country=ca&pageSize=pageSize=60&sortBy=popularity&apiKey=082c377cfd8d44f3b20ef9f522e07230`;
   // Technology News API URL
-  techNews = 'https://newsapi.org/v2/top-headlines?country=us&category=technology&pageSize=50&apiKey=082c377cfd8d44f3b20ef9f522e07230';
+  techNews = 'https://newsapi.org/v2/top-headlines?country=us&sortBy=popularity&category=technology&pageSize=50&apiKey=082c377cfd8d44f3b20ef9f522e07230';
   //business News
-  businessNews = 'https://newsapi.org/v2/top-headlines?country=us&pageSize=50&category=business&apiKey=082c377cfd8d44f3b20ef9f522e07230'
+  businessNews = 'https://newsapi.org/v2/top-headlines?country=us&sortBy=popularity&pageSize=50&category=business&apiKey=082c377cfd8d44f3b20ef9f522e07230'
   //sport News
-  sportsNews = 'https://newsapi.org/v2/top-headlines?country=us&category=sports&pageSize=50&sortBy=popularity&apiKey=082c377cfd8d44f3b20ef9f522e07230'
+  sportsNews = 'https://newsapi.org/v2/top-headlines?country=us&sortBy=popularity&pageSize=50&category=sports&apiKey=082c377cfd8d44f3b20ef9f522e07230'
   //entertaiment News
-  entertainmentNews = 'https://newsapi.org/v2/top-headlines?country=us&category=entertainment&pageSize=50&sortBy=popularity&apiKey=082c377cfd8d44f3b20ef9f522e07230'
+  entertainmentNews = 'https://newsapi.org/v2/top-headlines?country=us&sortBy=popularity&category=entertainment&pageSize=50&sortBy=popularity&apiKey=082c377cfd8d44f3b20ef9f522e07230'
   //general News
   generalNews = 'https://newsapi.org/v2/top-headlines?country=us&category=general&pageSize=50&sortBy=popularity&apiKey=082c377cfd8d44f3b20ef9f522e07230'
    //health News
@@ -85,6 +83,17 @@ export class NewsapiService {
       return this.http.get(this.url + encodeURIComponent(searchWord) + this.params + this.API_KEY);
     }
     return this.http.get(this.topHeaadlinesNews)
+  }
+
+  getNewsServiceByCategories(categories: string[]) {
+    let requests: { name: string, request: Observable<any> }[] = categories.map((category) => {
+      console.log('api address', `https://newsapi.org/v2/top-headlines?country=ca&sortBy=popularity&pageSize=${Math.round(60 / categories.length)}&category=` + category + this.params + this.API_KEY)
+      return {
+        name: category,
+        request: this.http.get(`https://newsapi.org/v2/top-headlines?country=ca&sortBy=popularity&pageSize=${Math.round(60 / categories.length)}&category=` + category + this.params + this.API_KEY)
+      }
+    })
+    return requests
   }
 
 

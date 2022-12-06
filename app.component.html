@@ -12,32 +12,19 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link  btn-icon" aria-current="page" href="#" routerLink="login" >Login</a>
+            <a class="nav-link  btn-icon" aria-current="page" href="#" routerLink="login" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" *ngIf="!isLoggedIn">Login</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link  btn-icon" aria-current="page" #home routerLink="" >Home</a>
+            <a class="nav-link  btn-icon" aria-current="page" href="#" routerLink="dashboard" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" *ngIf="isLoggedIn">Dashboard</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link  "   aria-current="page" href="#" routerLink="technology" >Technology</a>
+            <a class="nav-link  btn-icon" aria-current="page" #home routerLink="" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" >Home</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link " aria-current="page" href="#" routerLink="business" >Business</a>
+
+          <li class="nav-item" *ngFor="let route of routeCategories">
+            <a href="#" class="nav-link" aria-current="page" routerLink="{{route}}" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">{{route | titlecase}}</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link " aria-current="page" href="#" routerLink="Sport" >Sport</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link " aria-current="page" href="#" routerLink="health" >Health</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link " aria-current="page" href="#" routerLink="general" >General</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link " aria-current="page" href="#" routerLink="entertainment" >Entertainment</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link " aria-current="page" href="#" routerLink="science" >Science</a>
-          </li>
+          
         </ul>
         
         <form class="form-container d-flex" [formGroup]="searchForm"  > 
@@ -50,7 +37,51 @@
       </div>
     </div>
   </nav>
+  
   <router-outlet></router-outlet>
+
+  <div class="user-preferrence-modal" *ngIf="showUserPreferrenceModal">
+    <div class="modal-container">
+      <button class="close" (click)="closePreferrenceModal()"><span>✕</span></button>
+      <div class="header">
+        <h1>User preferrences</h1>
+        <div>Please answer a couple of questions about your news preferrences</div>
+      </div>
+      <div class="body">
+        <div class="question">
+          <div class="question-text">Select Categories to display in home page</div>
+          <div class="question-list">
+            <div class="question-option" *ngFor="let route of routeCategories">
+              <input 
+              type="checkbox" 
+              value="{{route}}" 
+              name="category" 
+              id="{{route}}" 
+              *ngIf="isCategorySelected(route)"
+              checked="{{isCategorySelected(route)}}"
+              (click)="toggleCategoryPrefference(route)">
+              <input 
+              type="checkbox" 
+              value="{{route}}" 
+              name="category" 
+              id="{{route}}" 
+              *ngIf="!isCategorySelected(route)"
+              (click)="toggleCategoryPrefference(route)">
+              <label for="{{route}}">{{route | titlecase}}</label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer">
+        <div class="save-checkbox">
+          <input *ngIf="getCurrentHideState() === true" type="checkbox" name="saveAndHide" id="saveAndHide" value="true" checked (click)="setHideState()" >
+          <input *ngIf="getCurrentHideState() === false" type="checkbox" name="saveAndHide" id="saveAndHide" value="true" (click)="setHideState()" >
+          <label for="saveAndHide">Save and Hide this questionaire</label>
+        </div>
+        <button (click)="savePrefferences()"> Save my prefferences</button>
+      </div>
+    </div>
+  </div>
   <footer class="container">
     <app-user-location></app-user-location>
     <p class="text-center" style="font-weight: bold" >&copy; & &reg; By BlackSwan Group</p>
