@@ -7,24 +7,24 @@
                         <h4 class="title">Edit Profile</h4>
                     </div>
                     <div class="content">
-                        <form>
+                        <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
                             <div class="row">
                                 <div class="col-md-5">
                                     <div class="form-group">
                                         <label>Company (disabled)</label>
-                                        <input type="text" class="form-control" disabled placeholder="Company" value="Creative Code Inc.">
+                                        <input type="text" class="form-control" disabled placeholder="Company" id="company" formControlName="company" value="{{profileForm.value.company">
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <label>Username</label>
-                                        <input type="text" class="form-control" placeholder="Username" value="michael23">
+                                        <input type="text" class="form-control" placeholder="Username"  id="username" formControlName="username" value="{{profileForm.value.username">
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label for="exampleInputEmail1">Email address</label>
-                                        <input type="email" class="form-control" placeholder="Email">
+                                        <input type="email" class="form-control" placeholder="Email"  id="email" formControlName="email" value="{{profileForm.value.email">
                                     </div>
                                 </div>
                             </div>
@@ -33,13 +33,13 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>First Name</label>
-                                        <input type="text" class="form-control" placeholder="Company" value="Mike">
+                                        <input type="text" class="form-control" id="firstName" formControlName="firstName" placeholder="Company" value="{{ profileForm.value.firstName }}">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Last Name</label>
-                                        <input type="text" class="form-control" placeholder="Last Name" value="Andrew">
+                                        <input type="text" id="lastName" formControlName="lastName" value="{{profileForm.value.lastName}"  class="form-control" placeholder="Last Name" >
                                     </div>
                                 </div>
                             </div>
@@ -48,7 +48,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label>Address</label>
-                                        <input type="text" class="form-control" placeholder="Home Address" value="Bld Mihail Kogalniceanu, nr. 8 Bl 1, Sc 1, Ap 09">
+                                        <input type="text" class="form-control" placeholder="Home Address" id="address" formControlName="address" value="{{profileForm.value.address}" >
                                     </div>
                                 </div>
                             </div>
@@ -57,19 +57,19 @@
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label>City</label>
-                                        <input type="text" class="form-control" placeholder="City" value="Mike">
+                                        <input type="text" class="form-control" placeholder="City" id="city" formControlName="city" value="{{profileForm.value.city}">
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label>Country</label>
-                                        <input type="text" class="form-control" placeholder="Country" value="Andrew">
+                                        <input type="text" class="form-control" placeholder="Country"  id="country" formControlName="country" value="{{profileForm.value.country}">
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label>Postal Code</label>
-                                        <input type="number" class="form-control" placeholder="ZIP Code">
+                                        <input type="text" class="form-control" placeholder="ZIP Code" id="zip" formControlName="zip" value="{{profileForm.value.zip}">
                                     </div>
                                 </div>
                             </div>
@@ -78,12 +78,14 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label>About Me</label>
-                                        <textarea rows="5" class="form-control" placeholder="Here can be your description" value="Mike">Lamborghini Mercy, Your chick she so thirsty, I'm in that two seat Lambo.</textarea>
+                                        <textarea rows="5" class="form-control" placeholder="Here can be your description" value="Mike">{{profileForm.value.aboutme}}</textarea>
                                     </div>
                                 </div>
                             </div>
-                            <button type="submit" class="btn btn-info btn-fill pull-right">Update Profile</button>
+                            <button type="submit"  class="btn btn-info btn-fill pull-left">Update Profile</button>
                             <div class="clearfix"></div>
+                            <p>Form Status: {{ profileForm.status }}</p>
+                            <br/>
                         </form>
                     </div>
                 </div>
@@ -96,10 +98,10 @@
                     <div class="content">
                         <div class="author">
                             <a href="#">
-                                <img class="avatar border-gray" src="assets/img/faces/face-3.jpg" alt="..."/>
+                                <img class="avatar border-gray" src="{{profileForm.value.pic}}" alt="..."/>
 
-                                <h4 class="title">Mike Andrew<br />
-                                    <small>michael24</small>
+                                <h4 class="title">{{profileForm.value.firstName}}<br />
+                                    <small>{{profileForm.value.lastName}}</small>
                                 </h4>
                             </a>
                         </div>
@@ -119,3 +121,24 @@
         </div>
     </div>
 </div>
+
+  <!-- <div  class="container-fluid mt-12 ">
+    <div class="row mt-3 ">
+        <h5 class="fontSize" >User Profile Setting  </h5>
+        <div  class="col-lg-3 mt-3 mb-3 ">
+              <div class="box">
+                <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+
+                    <label for="first-name">First Name: </label>
+                    <input id="first-name" type="text" formControlName="firstName">
+                  
+                    <label for="last-name">Last Name: </label>
+                    <input id="last-name" type="text" formControlName="lastName">
+                  
+                  </form>
+                
+              </div>
+        </div>
+    </div>
+</div>
+ -->
