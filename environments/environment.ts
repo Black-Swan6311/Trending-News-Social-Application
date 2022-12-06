@@ -4,8 +4,10 @@
 
 export const environment = {
   production: false,
-  apiUrl: "http://localhost:4200/",
-  loginWithGoogleUrl: "https://localhost:7264/LoginWithGoogle",
+  apiUrl: "https://localhost:7169/;",
+  loginWithGoogleUrl: "https://localhost:7264/api/Auth/LoginWithGoogle",
+  userInfoGoogleUrl: "https://localhost:7264/GetInfo",
+  updateUserSetting: "https://localhost:7264/UpdateUserInfo",
   clientId: "602947275663-3s2fg3f286k7r5167q23sc5g3jcevtmb.apps.googleusercontent.com"
 };
 

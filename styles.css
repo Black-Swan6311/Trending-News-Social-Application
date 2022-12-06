@@ -56,3 +56,16 @@ marquee{
 	font-size: 1.5rem;
 	font-weight: bold;
 }
+
+.image-box {
+    aspect-ratio: 16/9;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.image-box img {
+   
+    display: block;
+}
